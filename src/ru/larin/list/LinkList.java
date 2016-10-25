@@ -5,7 +5,6 @@ package ru.larin.list;
  */
 public class LinkList {
     private Node first;
-    private Node start;
 
     public LinkList() {
         this.first = null;
@@ -23,7 +22,6 @@ public class LinkList {
             Node node = new Node(string);
             node.setNextElementLink(first);
             first = node;
-            start = node;
         } else {
             boolean conect = false;
             Node temp = first;
@@ -40,7 +38,6 @@ public class LinkList {
                         Node node = new Node(string);
                         node.setNextElementLink(temp.getNextElementLink());
                         temp.setNextElementLink(node);
-                        start = node;
                         return;
                     } else {
                         temp = temp.getNextElementLink();
@@ -52,12 +49,8 @@ public class LinkList {
 
                 /*Если элемент надо вставить вначало*/
             if (conect == false) {
-                Node node = new Node(string);//300
-                node.setNextElementLink(first);
-                first = node;
-                String tempString = start.getData();
-                start.setData(string);
-                node.setData(tempString);
+               Node node = new Node(string);
+               temp.setNextElementLink(node);
             } else {
                 Node node = new Node(string);
                 node.setNextElementLink(first);
